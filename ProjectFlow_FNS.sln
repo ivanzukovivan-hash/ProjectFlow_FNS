@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlow_FNS", "ProjectFlow_FNS\ProjectFlow_FNS.csproj", "{C721882B-BAA1-4C15-864C-E1B64B7B028D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFlow_FNS.Tests", "ProjectFlow_FNS.Tests\ProjectFlow_FNS.Tests.csproj", "{69B5F33D-73C8-40F9-8F52-0FEB30F9BB5B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C721882B-BAA1-4C15-864C-E1B64B7B028D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C721882B-BAA1-4C15-864C-E1B64B7B028D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C721882B-BAA1-4C15-864C-E1B64B7B028D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C721882B-BAA1-4C15-864C-E1B64B7B028D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69B5F33D-73C8-40F9-8F52-0FEB30F9BB5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69B5F33D-73C8-40F9-8F52-0FEB30F9BB5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69B5F33D-73C8-40F9-8F52-0FEB30F9BB5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69B5F33D-73C8-40F9-8F52-0FEB30F9BB5B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AFA84584-20C4-49B8-911C-4590FA273496}
+	EndGlobalSection
+EndGlobal

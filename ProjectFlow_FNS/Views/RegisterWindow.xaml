@@ -1,0 +1,46 @@
+﻿<Window x:Class="ProjectFlow_FNS.Views.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Регистрация" Height="700" Width="420"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Background="#F5F5F5">
+        <Border Background="White" Margin="30" CornerRadius="10" Padding="25">
+            <StackPanel>
+                <TextBlock Text="Регистрация" FontSize="22" FontWeight="Bold" 
+                           Foreground="#005A9E" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+                <TextBlock Text="Логин:"/>
+                <TextBox x:Name="TxtLogin" Height="28" Margin="0,3,0,8"/>
+
+                <TextBlock Text="ФИО:"/>
+                <TextBox x:Name="TxtFullName" Height="28" Margin="0,3,0,8"/>
+
+                <TextBlock Text="Email:"/>
+                <TextBox x:Name="TxtEmail" Height="28" Margin="0,3,0,8"/>
+
+                <TextBlock Text="Роль:"/>
+                <ComboBox x:Name="CbRole" Height="28" Margin="0,3,0,8">
+                    <ComboBoxItem Content="Исполнитель" IsSelected="True"/>
+                    <ComboBoxItem Content="Менеджер"/>
+                    <ComboBoxItem Content="Администратор"/>
+                </ComboBox>
+
+                <TextBlock Text="Пароль:"/>
+                <PasswordBox x:Name="TxtPassword" Height="28" Margin="0,3,0,8"/>
+
+                <TextBlock Text="Контрольный вопрос:"/>
+                <TextBox x:Name="TxtQuestion" Height="28" Margin="0,3,0,8"/>
+
+                <TextBlock Text="Ответ на вопрос:"/>
+                <TextBox x:Name="TxtAnswer" Height="28" Margin="0,3,0,8"/>
+
+                <TextBlock x:Name="TxtMsg" Margin="0,10,0,0" HorizontalAlignment="Center"/>
+
+                <Button Content="Зарегистрироваться" Style="{StaticResource PrimaryButton}" 
+                        Margin="0,15,0,5" Click="BtnRegister_Click"/>
+                <Button Content="Назад ко входу" Background="Transparent" Foreground="#005A9E"
+                        BorderThickness="0" Click="BtnBack_Click"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

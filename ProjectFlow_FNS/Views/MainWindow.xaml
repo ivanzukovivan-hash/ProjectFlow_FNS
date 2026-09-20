@@ -1,0 +1,90 @@
+﻿<Window x:Class="ProjectFlow_FNS.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ProjectFlow ФНС - Главная" Height="600" Width="1000"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Шапка -->
+        <Border Grid.Row="0" Background="#005A9E" Padding="15">
+            <DockPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="🏛 ProjectFlow ФНС" Foreground="White" FontSize="20" FontWeight="Bold" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock x:Name="TxtUserInfo" Foreground="White" VerticalAlignment="Center" Margin="0,0,15,0"/>
+                    <Button Content="Выход" Background="#D32F2F" Foreground="White" Padding="15,5"
+                            Click="BtnLogout_Click"/>
+                </StackPanel>
+            </DockPanel>
+        </Border>
+
+        <!-- Вкладки модулей -->
+        <TabControl Grid.Row="1" Margin="10" FontSize="14">
+
+            <!-- Модуль Задач (TaskModule) -->
+            <TabItem Header="📋 Задачи">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <Button Content="➕ Новая задача" Style="{StaticResource PrimaryButton}" Click="BtnAddTask_Click"/>
+                        <Button Content="🗑 Удалить выбранную" Style="{StaticResource DangerButton}" Margin="10,0,0,0" Click="BtnDeleteTask_Click"/>
+                        <Button Content="🔄 Обновить" Background="#4CAF50" Foreground="White" Padding="15,8" Margin="10,0,0,0" Click="BtnRefresh_Click"/>
+                    </StackPanel>
+
+                    <DataGrid x:Name="DgTasks" Grid.Row="1" AutoGenerateColumns="False" 
+                              IsReadOnly="True" SelectionMode="Single"
+                              SelectionChanged="DgTasks_SelectionChanged"
+                              CanUserAddRows="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
+                            <DataGridTextColumn Header="Проект" Binding="{Binding ProjectName}" Width="180"/>
+                            <DataGridTextColumn Header="Задача" Binding="{Binding Title}" Width="*"/>
+                            <DataGridTextColumn Header="Статус" Binding="{Binding Status}" Width="110"/>
+                            <DataGridTextColumn Header="Приоритет" Binding="{Binding Priority}" Width="90"/>
+                            <DataGridTextColumn Header="Исполнитель" Binding="{Binding Assignee}" Width="160"/>
+                            <DataGridTextColumn Header="Срок" Binding="{Binding Deadline, StringFormat={}{0:dd.MM.yyyy}}" Width="100"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,10,0,0">
+                        <TextBlock Text="Сменить статус на:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                        <ComboBox x:Name="CbStatus" Width="160" Margin="0,0,10,0"/>
+                        <Button Content="Применить" Style="{StaticResource PrimaryButton}" Click="BtnChangeStatus_Click"/>
+                        <TextBlock x:Name="TxtStatusMsg" Foreground="#D32F2F" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <!-- Модуль Отчетов (ReportModule) -->
+            <TabItem Header="📊 Отчеты">
+                <StackPanel Margin="20">
+                    <TextBlock Text="Формирование отчетов для ФНС" FontSize="20" FontWeight="Bold"
+                               Foreground="#005A9E" Margin="0,0,0,20"/>
+
+                    <TextBlock Text="Выберите проект:"/>
+                    <ComboBox x:Name="CbProject" Height="30" Margin="0,5,0,15"/>
+
+                    <Button Content="📄 Экспорт задач проекта в CSV (Excel)" Height="40" 
+                            Style="{StaticResource PrimaryButton}" Margin="0,0,0,10"
+                            Click="BtnExportCsv_Click"/>
+
+                    <Button Content="📑 Сформировать сводный отчет" Height="40" 
+                            Background="#FF9800" Foreground="White" Padding="15,8" Margin="0,0,0,10"
+                            Click="BtnSummaryReport_Click"/>
+
+                    <TextBlock x:Name="TxtReportMsg" Margin="0,15,0,0" FontSize="14"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

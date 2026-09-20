@@ -1,0 +1,41 @@
+﻿<Window x:Class="ProjectFlow_FNS.Views.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ProjectFlow ФНС - Вход" Height="450" Width="470"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Background="#F5F5F5">
+        <Border Background="White" Margin="30" CornerRadius="10" Padding="25">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="15" Opacity="0.2"/>
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock Text="ФНС России" FontSize="22" FontWeight="Bold" 
+                           Foreground="#005A9E" HorizontalAlignment="Center"/>
+                <TextBlock Text="Система ProjectFlow" FontSize="14" 
+                           Foreground="Gray" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+                <TextBlock Text="Логин:" Margin="0,0,0,5"/>
+                <TextBox x:Name="TxtLogin" Height="30" Padding="5" Text="manager_fns"/>
+
+                <TextBlock Text="Пароль:" Margin="0,10,0,5"/>
+                <PasswordBox x:Name="TxtPassword" Height="30" Padding="5" Password="1234"/>
+
+                <TextBlock x:Name="TxtError" Foreground="#D32F2F" Margin="0,10,0,0" 
+                           HorizontalAlignment="Center" Visibility="Collapsed"/>
+
+                <Button Content="Войти" Style="{StaticResource PrimaryButton}" 
+                        Margin="0,20,0,10" Click="BtnLogin_Click"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="Регистрация" Background="Transparent" 
+                            Foreground="#005A9E" BorderThickness="0" Cursor="Hand"
+                            Click="BtnRegister_Click"/>
+                    <TextBlock Text=" | " Foreground="Gray"/>
+                    <Button Content="Забыли пароль?" Background="Transparent" 
+                            Foreground="#005A9E" BorderThickness="0" Cursor="Hand"
+                            Click="BtnForgot_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
