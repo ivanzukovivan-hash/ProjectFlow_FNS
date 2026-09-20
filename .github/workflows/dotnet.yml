@@ -1,0 +1,27 @@
+name: .NET CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1.3
+
+    - name: Restore NuGet packages
+      run: nuget restore ProjectFlow_FNS.sln
+
+    - name: Build solution
+      run: msbuild ProjectFlow_FNS.sln /p:Configuration=Release
+
+    - name: Run tests
+      run: vstest.console.exe ProjectFlow_FNS.Tests\bin\Release\ProjectFlow_FNS.Tests.dll --logger:trx
